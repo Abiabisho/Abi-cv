@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Print Stylesheet for clean paper resume export */
+@media print {
+  @page {
+    margin: 12mm 15mm;
+    size: A4 portrait;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide navigation, hero, interactive bars, footer, and non-printable elements */
+  .no-print,
+  nav,
+  header,
+  footer,
+  #hero,
+  #about,
+  #skills,
+  #projects,
+  #contact,
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  /* Show only the targeted CV print container */
+  .cv-studio-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .cv-document-sheet {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .cv-document-sheet * {
+    color: #111827 !important;
+    border-color: #e5e7eb !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .cv-document-sheet a {
+    color: #1d4ed8 !important;
+    text-decoration: underline !important;
+  }
+
+  .cv-document-sheet .text-slate-400,
+  .cv-document-sheet .text-slate-500,
+  .cv-document-sheet .text-gray-400 {
+    color: #4b5563 !important;
+  }
+
+  .cv-document-sheet .bg-slate-900,
+  .cv-document-sheet .bg-slate-800,
+  .cv-document-sheet .bg-[#0b0f19],
+  .cv-document-sheet .bg-[#0f172a] {
+    background: #f3f4f6 !important;
+  }
+}
